@@ -1,4 +1,4 @@
-from class32mes Import Mes
+from class32mes import Mes
 print("Trabajando con clases")
 for i in range(3):
     #aqui creamos un nuevo mes
@@ -11,8 +11,11 @@ for i in range(3):
     mes,temperaturaMinima = int(input())
     listaMeses.append(mes)
 #Recorremos los meses que hemos almacenado
+mediaAnual = 0
 for dato in listaMeses:
     print(dato.nombre + ", Maxima " + str(dato.temperaturaMaxima)) 
     print("Minima" + str(dato.temperaturaMinima))
     print("Media ", dato.getTemperaturaMedia())
+    mediaAnual = mediaAnual + dato.getTemperaturaMedia()
+print("Media anual ", mediaAnual)    
 print("Fin programa")    

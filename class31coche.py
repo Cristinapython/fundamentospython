@@ -1,6 +1,6 @@
 class Coche:
     #declaramos las propiedades del constructor
-    def__init__(self):
+    def __init__(self):
         self.marca = ""
         self.modelo = ""
         self.velocidad = 0
