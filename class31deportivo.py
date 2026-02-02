@@ -1,6 +1,6 @@
 from class31coche import Coche
 
-class Deportivo(coche):
+class Deportivo(Coche):
     def turbo(self):
         self.velocidad += 100
         print("turbo a tope ", self.velocidad)
