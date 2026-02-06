@@ -116,6 +116,31 @@ select count(*) as ENFERMERAS, SALA_COD
 from PLANTILLA
 where FUNCION = 'ENFERMERA'
 group by SALA_COD;
+--Tenemos una tabla de empleados 
+select * from DEPT;
+select TABLA1.CAMPO1, TABLA1, CAMPO2
+--Mostrar el apellido, oficio, nombre de dpto. y localidad
+--de los empleados
+select EMP.APELLIDO, EMP.OFICIO
+, DEPT.DNOMBRE, DEPT.LOC
+from EMP
+inner join DEPT
+on EMP.DEPT_NO = DEPT.DEPT_NO;
+--MOSTRAR EL APELLIDO , OFICIO, NOMBRE DEPARTAMENTO Y LOCALIDAD DE 
+--LOS EMPLEADOS DE SEVILLA
+select EMP.APELLIDO, EMP.OFICIO
+, DEPT.DNOMBRE, DEPT.LOC
+from EMP
+INNER JOIN DEPT
+on EMP.DEPT_NO = DEPT.DEPT_NO
+where DEPT.LOC = 'SEVILLA';
+--alias en n ombre tabla
+select e.apellido, e.oficio
+, d.NOMBRE
+
+
+
+
 
 
 
