@@ -46,6 +46,48 @@ OR APELLIDO='ALONSO';
 SELECT * FROM EMP WHEWE OFICIO IN
 (SELECT OFICIO FROM EMP WHERE APELLIDO ='JIMENEZ' OR APELLIDO='ALONSO');
 
+select * from EMP;
+--1. Mostrar el número de empleado, el apellido y 
+--la fecha de alta del empleado más antiguo de la empresa.
+select EMP_NO, APELLIDO, FECHA_ALT
+from EMP
+order by FECHA_ALT ASC;
+
+select * from (select EMP_NO, APELLIDO, FECHA_ALT
+from EMP
+order by FECHA_ALT ASC) P
+where FECHA_ALT='20/10/86';
+--ALTERNATIVA CORRECTA:
+where rownum = 1
+--2.Mostrar el número de empleado, el apellido 
+--y la fecha de alta del empleado más moderno de la empresa.
+select * from (select EMP_NO, APELLIDO, FECHA_ALT
+from EMP
+order by FECHA_ALT DESC) consulta
+where rownum = 1;
+--3. Visualizar el apellido y el salario de los empleados 
+--con el mismo oficio que Jiménez.
+select OFICIO from EMP
+where APELLIDO = 'jimenez';
+----------
+select APELLIDO, SALARIO 
+from EMP 
+WHERE OFICIO = (select OFICIO from EMP
+where APELLIDO = 'jimenez');
+--4. Queremos saber el apellido, oficio, salario y 
+--número de departamento de los empleados con salario mayor 
+--que el mejor salario del departamento 30
+select MAX(SALARIO) from EMP
+where DEPT_NO=30;
+
+
+
+
+ 
+
+
+
+
 
 
 
