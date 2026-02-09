@@ -58,5 +58,65 @@ select distinct OFICIO from EMP;
 --y que podemos generar con una consulta
 --los campos calculados siempre deben tener un ALIAS
 select APELLIDO, OFICIO, SALARIO + COMISION as TOTAL_SALARIO from EMP;
- 
+
+
+
+--union
+select APELLIDO, OFICIO, SALARIO as SUELDO from EMP
+union
+select APELLIDO, ESPECIALIDAD, SALARIO from DOCTOR
+union
+select APELLIDO, FUNCION, SALARIO from PLANTILLA
+where SALARIO > 250000; 
+
+SELECT apellido, oficio, salario from EMP
+union
+SELECT apellido, oficio, salario from EMP
+union
+SELECT apellido, oficio, salario from EMP;
+
+--select to select
+
+
+select APELLIDO, OFICIO, SALARIO as SUELDO from EMP
+union
+select APELLIDO, ESPECIALIDAD, SALARIO from DOCTOR
+union
+select APELLIDO, FUNCION, SALARIO from PLANTILLA
+order by SUELDO;
+
+select * from
+(select APELLIDO, OFICIO, SALARIO as SUELDO from EMP
+union
+select APELLIDO, ESPECIALIDAD, SALARIO from DOCTOR
+union
+select APELLIDO, FUNCION, SALARIO from PLANTILLA) consulta
+where consulta.SUELDO>= 250000;
+
+--CAMPOS CALCULADOS
+--MOSTRAR EL APELLIDO. OFICIO. SALARIO ANUAL DE LOS EMPLEADOS
+--CUYO SALARIO ANUAL SEA MAYOR A 150000
+
+SELECT TO SELECT
+select * from
+(select APELLIDO, OFICIO, (SALARIO *12) as SALARIO_ANUAL
+from EMP) miconsulta
+where miconsulta.SALARIO_ANUAL >= 250000;
+
+--SELECT TO ROW
+--tenemos el turno en plantilla
+select * from PLANTILLA;
+-----
+select APELLIDO, FUNCION,
+case TURNO
+    when 'T' then 'Tarde'
+    when 'M' then 'Mañana'
+    else 'Noche'
+end as TURNO_BONITO, TURNO
+from PLANTILLA;
+
+
+
+
+
   

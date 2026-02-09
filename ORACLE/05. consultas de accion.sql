@@ -45,4 +45,24 @@ HOSPITAL_COD not in (select HOSPITAL_COD from HOSPITAL);
 --Dar de alta con fecha actual al empleado José Escriche Barrera
 --como programador perteneciente al departamento de producción. 
 -- Tendrá un salario base de 70000 pts/mes y no cobrará comisión. 
-select from * EMP;
+select * from EMP;
+insert into EMP
+(APELLIDO, OFICIO, SALARIO, EMP_NO, COMISION, FECHA_ALT, DEPT_NO)
+values ('escriche', 'programador', 70000
+, (select max(EMP_NO) + 1 from EMP)
+, 0
+, SYSDATE
+, (select DEPT_NO from DEPT where DNOMBRE='PRODUCCIÓN'));
+rollback;
+--Se quiere dar de alta un departamento de 
+--informática situado en Fuenlabrada (Madrid).
+select * from DEPT;
+
+insert into DEPT
+(DEPT_NO, DNOMBRE, LOC)
+values ((select max(DEPT_NO) + 1 from DEPT)
+, 'INFORMATICA'
+, 'MADRID_FUENLABRADA');
+--El departamento de ventas, por motivos peseteros,
+-- se traslada a Teruel, realizar dicha modificación
+update DEPT set 
