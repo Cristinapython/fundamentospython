@@ -1,0 +1,19 @@
+import oracledb
+#creamos conexion oracle
+connection = oracledb.connect(user="SYSTEM", password="oracle"
+                              , dsn="localhost/FREEPDB1")
+cursor = connection.cursor()
+print ("Introduzca numero de departamento")
+numero = input()
+sql = f"select APELLIDO, OFICIO, DEPT_NO from EMP where DEPT_NO={numero}"
+
+print (sql)
+cursor.execute(sql)
+for apellido, oficio, dept in cursor:
+    print(f"Apellido: {apellido}, Oficio: {oficio}, Departamento: {dept}")
+cursor.close
+connection.close()   
+print("Fin de programa")
+
+
+

@@ -22,6 +22,7 @@ for row in cursor:
     num = row[0]
     nom = row[1]
     loc = row[2]
+    
     print (f"id: {num}, Nombre: {nom}, Localidad: {loc}") 
 cursor.close
 connection.close()   

@@ -6,4 +6,10 @@ delete from ENFERMO where INSCRIPCION=1;
 rollback;
 commit;
 --si no le decimos commit o rollback no se ejecuta
-insert into DEPT values(88, 'NUEVO', 'NUEVO')
+select APELLIDO, OFICIO, DEPT_NO from EMP where DEPT_NO=0
+select APELLIDO, OFICIO, DEPT_NO from EMP where DEPT_NO=0 or 1=1;
+select OFICIO, APELLIDO, SALARIO from EMP where SALARIO= SALARIO;
+update EMP set SALARIO= SALARIO+1 where OFICIO ='DIRECTOR';
+update PLANTILLA set SALARIO = SALARIO + 1 where HOSPITAL_COD=19;
+select * from EMP;
+select * from PLANTILLA;
