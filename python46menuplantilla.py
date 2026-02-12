@@ -23,11 +23,11 @@ opcion = int(input())
 funcionSeleccionada = listaFunciones[opcion - 1]
 print(f"Opcion selecionada: {funcionSeleccionada}")    
 #Consultamos los empleados con la funcion seleccionada
-sql = "select * from PLANTILLA where FUNCION=:funcion"
+sql = "select APELLIDO from PLANTILLA where FUNCION=:funcion"
 cursor.execute(sql, (funcionSeleccionada,))
 print("-------Lista de empleados---------")
 for row in cursor:
-    print(f"-{row[3]}")
+    print(f"-{row[0]}")
 cursor.close
 connection.close()
 print("FIN DEL PROGRAMA")
