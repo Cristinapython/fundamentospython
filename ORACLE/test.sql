@@ -13,3 +13,7 @@ update EMP set SALARIO= SALARIO+1 where OFICIO ='DIRECTOR';
 update PLANTILLA set SALARIO = SALARIO + 1 where HOSPITAL_COD=19;
 select * from EMP;
 select * from PLANTILLA;
+select * from HOSPITAL;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+select * from DOCTOR;
+
